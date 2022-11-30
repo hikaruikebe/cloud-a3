@@ -15,7 +15,7 @@ phases:
   post_build:
     commands:
       # s3
-      - sam package --template-file cf-template.yml --output-template-file cloudformation.packaged.yml --s3-bucket a3-artifacts --s3-prefix /templates
+      - sam package --template-file cf-template.yml --output-template-file cloudformation.packaged.yml --s3-bucket a3-artifacts
       # lambda
       # - (cd frontend/ && aws s3 sync dist/ s3://a3-web/)
 
