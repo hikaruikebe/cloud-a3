@@ -9,7 +9,7 @@ phases:
     commands:
       # lambda
       - (cd body-reader && zip -g body-reader.zip lambda_function.py)
-      # - aws s3 cp body-reader/body-reader.zip s3://a3-artifacts/templates/
+      - aws s3 cp body-reader/body-reader.zip s3://a3-artifacts/templates/
       # s3
       # - (cd frontend && yarn && yarn run build)
   post_build:
