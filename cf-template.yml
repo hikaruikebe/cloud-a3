@@ -9,16 +9,16 @@
 # Conditions: 
 Transform: AWS::Serverless-2016-10-31
 Resources:
-  S1:
-    Type: 'AWS::S3::Bucket'
-    DeletionPolicy: Retain
-    Properties:
-      BucketName: 'a3-s1-test'
-  a3Artifacts:
-    Type: 'AWS::S3::Bucket'
-    Properties:
-      BucketName: a3-artifacts
-    DeletionPolicy: Retain
+  # S1:
+  #   Type: 'AWS::S3::Bucket'
+  #   DeletionPolicy: Retain
+  #   Properties:
+  #     BucketName: 'a3-s1-test'
+  # a3Artifacts:
+  #   Type: 'AWS::S3::Bucket'
+  #   Properties:
+  #     BucketName: a3-artifacts
+  #   DeletionPolicy: Retain
   BodyReader:
     Type: 'AWS::Serverless::Function'
     DeletionPolicy: Retain
