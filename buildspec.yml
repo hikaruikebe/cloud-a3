@@ -1,0 +1,24 @@
+version: 0.2
+phases:
+  install:
+    runtime-versions:
+      python: 3.10
+    commands:
+      - pip install aws-sam-cli
+  build:
+    commands:
+      # lambda
+      - (cd body-reader && zip -g body-reader.zip lambda_function.py)
+      - aws s3 cp body-reader/body-reader.zip s3://a3-artifacts/templates/
+      # s3
+      # - (cd frontend && yarn && yarn run build)
+  post_build:
+    commands:
+      # s3
+      - sam package --template-file cf-template.yml --output-template-file cloudformation.packaged.yml --s3-bucket a3-artifacts
+      # lambda
+      # - (cd frontend/ && aws s3 sync dist/ s3://a3-web/)
+
+artifacts:
+  files:
+  - cloudformation.packaged.yml

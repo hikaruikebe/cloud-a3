@@ -1,0 +1,26 @@
+# AWSTemplateFormatVersion: 2010-09-09
+# Description: ---
+# Metadata: 
+
+# Parameters: 
+
+# Mappings: 
+
+# Conditions: 
+Transform: AWS::Serverless-2016-10-31
+Resources:
+  S1:
+    Type: 'AWS::S3::Bucket'
+    DeletionPolicy: Retain
+    Properties:
+      BucketName: 'a3-s1-test'
+  BodyReader:
+    Type: 'AWS::Serverless::Function'
+    DeletionPolicy: Retain
+    Properties:
+      Architectures: ['x86_64']
+      Runtime: python3.8
+      CodeUri: body-reader/body_reader.zip
+      Handler: lambda_function.lambda_handler
+      FunctionName: a3-body-reader
+      # Role: arn:aws:iam::828815413195:role/a3-body-reader-role
