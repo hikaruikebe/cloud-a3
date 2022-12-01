@@ -19,16 +19,16 @@ Resources:
     Properties:
       BucketName: a3-artifacts
     DeletionPolicy: Retain
-  # BodyReader:
-  #   Type: 'AWS::Serverless::Function'
-  #   DeletionPolicy: Retain
-  #   Properties:
-  #     Architectures: ['x86_64']
-  #     Runtime: python3.8
-  #     CodeUri: body-reader/body-reader.zip
-  #     Handler: lambda_function.lambda_handler
-  #     FunctionName: a3-body-reader
-  #     Role: arn:aws:iam::828815413195:role/a3-body-reader-role
+  BodyReader:
+    Type: 'AWS::Serverless::Function'
+    DeletionPolicy: Retain
+    Properties:
+      Architectures: ['x86_64']
+      Runtime: python3.8
+      CodeUri: body-reader/body-reader.zip
+      Handler: lambda_function.lambda_handler
+      FunctionName: a3-body-reader
+      Role: arn:aws:iam::828815413195:role/a3-body-reader-role
   BodyReaderRole:
     Type: 'AWS::IAM::Role'
     DeletionPolicy: Retain
