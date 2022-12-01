@@ -28,7 +28,14 @@ Resources:
       CodeUri: body-reader/body-reader.zip
       Handler: lambda_function.lambda_handler
       FunctionName: a3-body-reader
-      Role: arn:aws:iam::828815413195:role/a3-body-reader-role
+      Events:
+        S3Event:
+          Type: S3
+          Properties: 
+            Role: arn:aws:iam::828815413195:role/a3-body-reader-role
+              Bucket:
+                Ref: 'a3-s1-test'
+              Events: s3:ObjectCreated:*
   BodyReaderRole:
     Type: 'AWS::IAM::Role'
     DeletionPolicy: Retain
