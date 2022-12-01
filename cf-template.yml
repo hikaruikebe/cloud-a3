@@ -37,21 +37,21 @@ Resources:
       AssumeRolePolicyDocument: 
         Version: '2012-10-17'
         Statement:
-        - Effect: Allow
-          Principal:
-            Service: [lambda.amazonaws.com]
-          Action: [sts:AssumeRole]
+          - Effect: "Allow"
+            Principal:
+              Service: lambda.amazonaws.com
+            Action: sts:AssumeRole
       Policies:
-      - PolicyName: GetS3Objects
-        PolicyDocument:
-          Version: '2012-10-17'
-          Statement:
-          - Sid: VisualEditor0
-            Effect: Allow
-            Action:
-            - s3:GetObject
-            - s3:GetObjectAttributes
-            - s3:PutObject
-            Resource: arn:aws:s3:::*
+        - PolicyName: GetS3Objects
+          PolicyDocument:
+            Version: '2012-10-17'
+            Statement:
+              - Sid: VisualEditor0
+                Effect: Allow
+                Action:
+                  - s3:GetObject
+                  - s3:GetObjectAttributes
+                  - s3:PutObject
+                Resource: arn:aws:s3:::*
       ManagedPolicyArns: 
         - arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole
