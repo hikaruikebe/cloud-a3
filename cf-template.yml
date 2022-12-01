@@ -31,10 +31,11 @@ Resources:
       Events:
         S3Event:
           Type: S3
-          Properties: 
-            Role: arn:aws:iam::828815413195:role/a3-body-reader-role
-              Bucket: 'a3-s1-test'
-              Events: s3:ObjectCreated:*
+          Properties:
+            Bucket:
+              Ref: 'a3-s1-test'
+            Events: s3:ObjectCreated:*
+      Role: arn:aws:iam::828815413195:role/a3-body-reader-role
   BodyReaderRole:
     Type: 'AWS::IAM::Role'
     DeletionPolicy: Retain
