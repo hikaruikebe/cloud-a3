@@ -67,5 +67,14 @@ Resources:
             - s3:GetObjectAttributes
             - s3:PutObject
             Resource: arn:aws:s3:::*
+      - PolicyName: SesPolicy
+        PolicyDocument:
+          Version: '2012-10-17'
+          Statement:
+          - Sid:
+            Effect: Allow
+            Action:
+            - ses:SendEmail
+            - ses:SendRawEmail
       ManagedPolicyArns: 
         - arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole
