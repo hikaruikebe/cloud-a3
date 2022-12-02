@@ -30,6 +30,20 @@ Resources:
                 - ''
                 - - 'arn:aws:s3:::'
                   - !Ref S1
+      PolicyName: a1-s3-policy
+      Roles:
+        - !Ref S1Role
+  S1Role:
+    Type: 'AWS::IAM::Role'
+    Properties:
+      AssumeRolePolicyDocument:
+        Statement:
+          - Action:
+              - 'sts:AssumeRole'
+            Effect: Allow
+            Principal:
+              Service:
+                - s3.amazonaws.com
 
 
 
