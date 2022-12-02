@@ -14,6 +14,20 @@ Resources:
     DeletionPolicy: Retain
     Properties:
       BucketName: 'a3-s1-test'
+  S1Policy:
+    Type: 'AWS::S3::BucketPolicy'
+    Properties:
+      Bucket: S1
+      PolicyDocument:
+        Version: 2012-10-17
+        Statement:
+          - Action:
+              - 's3:PutObject'
+            Effect: Allow
+
+
+
+
   a3Artifacts:
     Type: 'AWS::S3::Bucket'
     Properties:
