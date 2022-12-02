@@ -46,7 +46,7 @@ Resources:
               S3Key:
                 Rules:
                   - Name: suffix
-                    Value:
+                    Value: /
       Role: arn:aws:iam::828815413195:role/a3-body-reader-role
   BodyReaderRole:
     Type: 'AWS::IAM::Role'
