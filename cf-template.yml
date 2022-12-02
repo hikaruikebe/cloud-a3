@@ -17,7 +17,7 @@ Resources:
   S1Policy:
     Type: 'AWS::S3::BucketPolicy'
     Properties:
-      Bucket: S1
+      Bucket: !Ref S1
       PolicyDocument:
         Version: 2012-10-17
         Statement:
