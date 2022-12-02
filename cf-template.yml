@@ -41,11 +41,11 @@ Resources:
           Properties:
             Bucket: !Ref S1
             Events: s3:ObjectCreated:*
-            Filter:
-              S3Key:
-                Rules:
-                  - Name: prefix
-                    Value: /
+            # Filter:
+            #   S3Key:
+            #     Rules:
+            #       - Name: prefix
+            #         Value: /
       Role: arn:aws:iam::828815413195:role/a3-body-reader-role
   BodyReaderRole:
     Type: 'AWS::IAM::Role'
