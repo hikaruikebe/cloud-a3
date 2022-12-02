@@ -39,8 +39,7 @@ Resources:
         S3PutObjectEvent:
           Type: S3
           Properties:
-            Bucket:
-              Ref: S1
+            Bucket: !Ref S1
             Events: s3:ObjectCreated:*
             Filter:
               S3Key:
