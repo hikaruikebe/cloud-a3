@@ -81,5 +81,13 @@ Resources:
             - ses:SendEmail
             - ses:SendRawEmail
             Resource: arn:aws:ses:*:828815413195:identity/*
+      - PolicyName: SagemakerPolicy
+        PolicyDocument:
+          Version: '2012-10-17'
+          Statement:
+          - Sid: VisualEditor0
+            Effect: Allow
+            Action: sagemaker:InvokeEndpoint
+            Resource: arn:aws:sagemaker:*:828815413195:endpoint/*
       ManagedPolicyArns: 
         - arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole
