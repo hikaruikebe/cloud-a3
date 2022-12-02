@@ -10,17 +10,17 @@ Resources:
     Properties:
       Bucket: !Ref S1
       PolicyDocument:
-        Version: 2012-10-17
+        Version: '2012-10-17'
         Statement:
-          - Action:
-              - 's3:PutObject'
-            Effect: Allow
-            Resource: !Join
-              - ''
-              - - 'arn:aws:s3:::'
-                - !Ref S1
-                - /*
-            Principal: '*'
+        - Sid: AllowSESPuts
+          Effect: Allow
+          Principal:
+            Service: ses.amazonaws.com
+          Action: s3:PutObject
+          Resource: arn:aws:s3:::a3-s1-test/*
+          Condition:
+            StringEquals:
+              aws:Referer: '828815413195'
   a3Artifacts:
     Type: 'AWS::S3::Bucket'
     Properties:
@@ -40,7 +40,7 @@ Resources:
           Type: S3
           Properties:
             Bucket:
-              Ref: 'a3-s1-test'
+              Ref: S1
             Events: s3:ObjectCreated:*
       Role: arn:aws:iam::828815413195:role/a3-body-reader-role
   BodyReaderRole:
