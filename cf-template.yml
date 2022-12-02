@@ -16,6 +16,7 @@ Resources:
       BucketName: 'a3-s1-test'
   S1Policy:
     Type: 'AWS::S3::BucketPolicy'
+    DeletionPolicy: Retain
     Properties:
       Bucket: !Ref S1
       PolicyDocument:
@@ -24,6 +25,11 @@ Resources:
           - Action:
               - 's3:PutObject'
             Effect: Allow
+            Resource:
+              - !Join
+                - ''
+                - - 'arn:aws:s3:::'
+                  - !Ref S1
 
 
 
