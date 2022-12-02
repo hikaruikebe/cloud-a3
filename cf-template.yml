@@ -44,7 +44,7 @@ Resources:
             Filter:
               S3Key:
                 Rules:
-                  - Name: suffix
+                  - Name: prefix
                     Value: /
       Role: arn:aws:iam::828815413195:role/a3-body-reader-role
   BodyReaderRole:
