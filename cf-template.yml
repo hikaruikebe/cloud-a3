@@ -40,7 +40,7 @@ Resources:
           Type: S3
           Properties:
             Bucket:
-              Ref: !Ref S1
+              Ref: 'a3-s1-test'
             Events: s3:ObjectCreated:*
       Role: arn:aws:iam::828815413195:role/a3-body-reader-role
   BodyReaderRole:
