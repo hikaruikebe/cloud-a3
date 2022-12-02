@@ -82,7 +82,7 @@ Resources:
     Type: 'AWS::IAM::Role'
     DeletionPolicy: Retain
     Properties:
-      RoleName: a3-cloudformation-role
+      RoleName: a3-cloudformation
       AssumeRolePolicyDocument: 
         Version: '2012-10-17'
         Statement:
