@@ -16,7 +16,6 @@ Resources:
       BucketName: 'a3-s1-test'
   S1Policy:
     Type: 'AWS::S3::BucketPolicy'
-    DeletionPolicy: Retain
     Properties:
       Bucket: !Ref S1
       PolicyDocument:
@@ -25,25 +24,17 @@ Resources:
           - Action:
               - 's3:PutObject'
             Effect: Allow
-            Resource:
-              - !Join
-                - ''
-                - - 'arn:aws:s3:::'
-                  - !Ref S1
-      PolicyName: a1-s3-policy
-      Roles:
-        - !Ref S1Role
-  S1Role:
-    Type: 'AWS::IAM::Role'
-    Properties:
-      AssumeRolePolicyDocument:
-        Statement:
-          - Action:
-              - 'sts:AssumeRole'
-            Effect: Allow
-            Principal:
-              Service:
-                - s3.amazonaws.com
+            Resource: !Join
+              - ''
+              - - 'arn:aws:s3:::'
+                - !Ref S1
+                - /*
+            Principal: '*'
+            # Condition:
+            #   StringLike:
+            #     'aws:Referer':
+            #       - 'http://www.example.com/*'
+            #       - 'http://example.net/*'
 
 
 
