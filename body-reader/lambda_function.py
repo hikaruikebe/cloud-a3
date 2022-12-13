@@ -29,6 +29,8 @@ else:
 #
 #
 
+# test comment
+
 def vectorize_sequences(sequences, vocabulary_length):
     results = np.zeros((len(sequences), vocabulary_length))
     for i, sequence in enumerate(sequences):
